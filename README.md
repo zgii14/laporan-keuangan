@@ -4,9 +4,8 @@
 ![Laravel Version](https://img.shields.io/badge/Laravel-10.x-orange.svg?style=for-the-badge&logo=laravel)
 ![Lisensi](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
 
-Aplikasi berbasis web yang dibangun dengan Laravel untuk melakukan pencatatan transaksi keuangan sederhana dan menghasilkan laporan keuangan standar secara otomatis. Proyek ini mengadopsi arsitektur Clean Code dengan Service Layer dan antarmuka profesional menggunakan template SB Admin 2.
+Aplikasi berbasis web yang dibangun dengan Laravel untuk melakukan pencatatan transaksi keuangan sederhana dan menghasilkan laporan keuangan standar secara otomatis. 
 
-![Screenshot Aplikasi](https://i.imgur.com/gSjGZ8a.png)
 
 ---
 
