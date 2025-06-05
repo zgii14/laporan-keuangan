@@ -149,7 +149,63 @@
                     </tfoot>
                 </table>
             </div>
-
+            <div class="modal fade" id="addTransactionModal" tabindex="-1" role="dialog"
+                aria-labelledby="addTransactionModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addTransactionModalLabel">Tambah Transaksi Baru</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <form action="{{ route("transactions.store") }}" method="POST">
+                            @csrf
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="date" class="form-label">Tanggal:</label>
+                                        <input type="date" class="form-control" id="date" name="date"
+                                            value="{{ old("date", date("Y-m-d")) }}" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="category" class="form-label">Kategori:</label>
+                                        <select class="form-control" id="category" name="category" required>
+                                            <option value="pendapatan"
+                                                {{ old("category") == "pendapatan" ? "selected" : "" }}>Pendapatan</option>
+                                            <option value="pengeluaran"
+                                                {{ old("category") == "pengeluaran" ? "selected" : "" }}>Pengeluaran
+                                            </option>
+                                            <option value="modal" {{ old("category") == "modal" ? "selected" : "" }}>
+                                                Modal</option>
+                                            <option value="utang" {{ old("category") == "utang" ? "selected" : "" }}>
+                                                Utang</option>
+                                            <option value="aset" {{ old("category") == "aset" ? "selected" : "" }}>Aset
+                                            </option>
+                                            <option value="prive" {{ old("category") == "prive" ? "selected" : "" }}>
+                                                Prive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="amount" class="form-label">Jumlah (Rp):</label>
+                                    <input type="number" class="form-control" id="amount" name="amount"
+                                        value="{{ old("amount") }}" required placeholder="Contoh: 50000">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Deskripsi:</label>
+                                    <textarea class="form-control" id="description" name="description" rows="3" required
+                                        placeholder="Contoh: Pembelian ATK untuk kantor">{{ old("description") }}</textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-primary">Simpan Transaksi</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         @endsection
 
         @section("scripts")
